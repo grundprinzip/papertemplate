@@ -32,17 +32,42 @@ function printmsg {
   done
 }
 
-if [ -e .git ]
-  then
+function handlegit {
   echo "Git repository found, checking..."
   git_files=($(git ls-files --cached --modified --exclude-standard | sort -u))
   diffLists all_files[@] git_files[@]
+}
 
+function handlesvn {
+  echo "SVN repository found, checking files"
+  svn_files=($(svn ls -R | sort -u))
+  diffLists all_files[@] svn_files[@]
+}
+
+if [ -e .git ]
+  then
+  handlegit
+  exit 0
 fi
 
 if [ -e .svn ]
   then
-  echo "SVN repository found, checking files"
-  svn_files=($(svn ls -R | sort -u))
-  diffLists all_files[@] svn_files[@]
+  handlesvn  
+  exit 0
+fi
+
+git status > /dev/null 2>&1
+if [ "$?" -eq "0" ]
+  then
+  handlegit
+  exit 0
+fi
+
+svn st 2>&1 | grep -v "not a working copy" > /dev/null 2>&1 
+if [ "$?" -eq "0" ]
+  then
+  handlesvn
+  exit 0
+else
+  echo "No version control system found, you better get one..."
 fi
