@@ -1,13 +1,12 @@
 # papertemplate
 
-
-The aim of this project is to provide a simple template for LaTeX papers that
-allows consistent managing of the different resources.
+Papertemplate is a skeleton folder for creating LaTeX documents and provides a
+set of useful bash scripts that can make your life easier when working
+collaboratively on LaTeX documents.
 
 The easiest way is to use this folder as the base version for your paper and
 just drop your files into this folder. For easier reference you should follow
 some guidelines.
-
 
   1. Put sections into separate files and put all of them into the sections
      folder so that it becomes easier to work with for multiple people.
@@ -40,6 +39,11 @@ This small package offers you some very convenient make targets:
      for examples.
   5. `make clean` will remove all the mess that LaTeX made
 
+## Requirements
+
+Basically, any Linux / Mac operating system should be fine. The basic
+requirement is Perl for `latexmk` and Ruby for `rdblp`. Windows? No way. 
+
 ## rDBLP for Reference Management
 
 DBLP is a command line tool to fetch required bibtex entries directly from the
@@ -55,5 +59,9 @@ document just add `dblp` as another bibliography file.
 
 More information here: https://github.com/grundprinzip/dblp
 
-## Wrapping Text Content
+
+## Referenced Software
+
+  Latexmk - http://users.phys.psu.edu/~collins/software/latexmk-jcc/
+
 
