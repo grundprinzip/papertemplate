@@ -8,11 +8,14 @@ function handlegit {
       echo "$REPORT$J" >> .gitignore
   done
   echo "deps.lst" >> .gitignore
+  echo "Gemfile.lock" >> .gitignore
 }
 
 function handlesvn {
   svn propget svn:ignore . > tmp.ignore
   echo "deps.lst" >> tmp.ignore
+  echo "Gemfile.lock" >> tmp.ignore
+  
   for j in ${endings[@]}
     do
       echo "$REPORT$j" >> tmp.ignore      
