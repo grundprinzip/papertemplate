@@ -21,6 +21,24 @@ some guidelines.
      line the base name (without ending) of your tex file
   2. Execute `make prepare` from the command line and follow the instructions
 
+## Run
+
+This small package offers you some very convenient make targets:
+
+  1. `make` will build the TeX file you specified the required number of times,
+     will eventually fetch the references via DBLP and make sure everything is
+     alright
+  2. `make cont` will do the same but continuously whenever you change a
+     dependent file it will rerun `pdflatex`
+  3. `make check` will check your repository if all the files that are required
+     by the LaTeX document are actually included in the version control system.
+     There is even a handy git pre-commit hook that you can use to perform this
+     task automatically when you want to commit something.
+  4. `make open` opens the document in your favorite PDF viewer, per default
+     this is Preview.app on the Mac and acroread on Linux. You can modify the
+     file deps/latexmkrc to use your own previewer. See deps/latexmkrc.default
+     for examples.
+  5. `make clean` will remove all the mess that LaTeX made
 
 ## rDBLP for Reference Management
 
@@ -34,6 +52,8 @@ search for the entry and copy the Bibtex key and use it for citations. Once the
 document compiles this script will automatically download the necessary entry
 from the DBLP website and add the entry to the file `dblp.bib`. In your LaTeX
 document just add `dblp` as another bibliography file.
+
+More information here: https://github.com/grundprinzip/dblp
 
 ## Wrapping Text Content
 
