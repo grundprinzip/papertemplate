@@ -455,6 +455,10 @@ $log_wrap = 79;
 $latex  = 'latex %O %S';
 $pdflatex = 'pdflatex %O %S';
 
+# Allow the use of DBLP gem for references
+$use_dblp = 0;
+$dblp_options = '-s --no-crossref';
+
 ## Default switches:
 $latex_default_switches = '';
 $pdflatex_default_switches = '';
@@ -3569,8 +3573,14 @@ sub check_biber_log {
 
 #**************************************************
 sub run_dblp {
+
+  # Abort if DBLP is not available
+  if ($use_dblp != 1) {
+    return 0;
+  }
+
   my ($base, $path, $ext) = fileparseA( $$Psource );
-  my $cmd ="dblp -s --no-crossref --no-bibtex $base$path.tex";
+  my $cmd ="dblp $dblp_options --no-bibtex $base$path.tex";
   my $result = system($cmd);
   if ($result != 0 && $diagnostics) {
     print "Error in calling DBLP\n";

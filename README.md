@@ -1,4 +1,34 @@
-papertemplate
-=============
+# papertemplate
 
-Simple Skeleton for LaTeX based papers
+
+The aim of this project is to provide a simple template for LaTeX papers that
+allows consistent managing of the different resources.
+
+The easiest way is to use this folder as the base version for your paper and
+just drop your files into this folder. For easier reference you should follow
+some guidelines.
+
+
+  1. Put sections into separate files and put all of them into the sections
+     folder so that it becomes easier to work with for multiple people.
+  2. Images, graphs etc. should all go into the figures folder
+  3. Wrap you LaTeX content at 80 cols in your text editor
+  4. Use rDBLP for reference management
+
+
+
+## rDBLP for Reference Management
+
+DBLP is a command line tool to fetch required bibtex entries directly from the
+DBLP servers. The idea is, that you don't have to maintain all entries in your
+own file, but use well known bibtex identifiers instead and then fetch them from
+DBLP.
+
+When you want to cite content that is available from DBLP you only need to
+search for the entry and copy the Bibtex key and use it for citations. Once the
+document compiles this script will automatically download the necessary entry
+from the DBLP website and add the entry to the file `dblp.bib`. In your LaTeX
+document just add `dblp` as another bibliography file.
+
+## Wrapping Text Content
+

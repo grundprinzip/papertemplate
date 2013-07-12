@@ -1,0 +1,21 @@
+#--------------------------------------------
+# Choose your desired pdf preview application
+
+# $pdf_previewer="open -a Skim %S";
+
+# On Linux the default previewer will be acroread
+# you could use Evince instead
+
+# $pdf_previewer="start evince %S";
+
+
+#--------------------------------------------
+# If you want to use DBLP for reference management in your paper you should use
+# the following option:
+# $use_dblp = 1;
+
+# These are the default options for DBLP. If you want to add cross-references or
+# want to have longer output for conference and proceedings names modify these
+# options here
+
+# $dblp_options = '-s --no-crossref';
