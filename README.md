@@ -15,6 +15,11 @@ some guidelines.
   3. Wrap you LaTeX content at 80 cols in your text editor
   4. Use rDBLP for reference management
 
+## Setup
+
+  1. First open the Makefile in your favorite text editor and add in the first
+     line the base name (without ending) of your tex file
+  2. Execute `make prepare` from the command line and follow the instructions
 
 
 ## rDBLP for Reference Management
